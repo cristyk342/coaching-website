@@ -154,27 +154,174 @@
             border-top: 1px solid #e8dfd4;
         }
 
-        .about-container {
-            max-width: 900px;
+        .about-hero {
+            max-width: 1400px;
             margin: 0 auto;
-            text-align: center;
         }
 
-        .about h2 {
-            font-size: 2.5rem;
+        .about-main-heading {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #000000;
+            margin-bottom: 60px;
+            max-width: 1000px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .about-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .about-image {
+            width: 100%;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, #4a7ec9 0%, #6b9ed9 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .about-text-content {
+            padding: 40px 0;
+            background: #f5f5f5;
+            border-radius: 20px;
+            padding: 60px;
+        }
+
+        .about-text-content p {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: #333333;
+            margin-bottom: 40px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .btn-about {
+            display: inline-block;
+            background: #000000;
+            color: #ffffff;
+            padding: 16px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .btn-about:hover {
+            background: #333333;
+            transform: translateY(-2px);
+        }
+
+        /* Featured Section */
+        .featured-section {
+            max-width: 1000px;
+            margin: 0 auto 100px;
+            padding: 60px;
+            background: #fafafa;
+            border-radius: 20px;
+        }
+
+        .featured-heading {
+            font-size: 1rem;
+            color: #999999;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
             font-weight: 400;
-            margin-bottom: 30px;
-            color: #2b2b2b;
-            font-family: 'Georgia', serif;
-            letter-spacing: 0.5px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
         }
 
-        .about p {
-            font-size: 1.15rem;
-            color: #5a5a5a;
-            line-height: 1.9;
-            margin-bottom: 25px;
-            font-family: 'Georgia', serif;
+        .featured-logos {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #cccccc;
+            text-align: center;
+            font-family: Georgia, serif;
+            padding: 20px;
+        }
+
+        /* Video Section */
+        .video-section {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(to bottom, #1a1a2e 0%, #0f0f1e 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(100, 100, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .video-play-btn {
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            position: relative;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .video-play-btn:hover {
+            background: rgba(0, 0, 0, 0.95);
+            transform: scale(1.05);
         }
 
         /* Journey/Carousel Section */
@@ -734,6 +881,20 @@
         }
 
         @media (max-width: 1024px) {
+            .about-main-heading {
+                font-size: 2.5rem;
+            }
+
+            .about-content-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .featured-logos {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
             .program-card {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -755,6 +916,32 @@
 
             .hero h1 {
                 font-size: 2.5rem;
+            }
+
+            .about-main-heading {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .about-text-content {
+                padding: 40px 30px;
+            }
+
+            .about-text-content p {
+                font-size: 1.1rem;
+            }
+
+            .featured-section {
+                padding: 40px 30px;
+            }
+
+            .featured-logos {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .logo-placeholder {
+                font-size: 1.5rem;
             }
 
             .nodes-container {
@@ -814,11 +1001,38 @@
 
     <!-- About Section -->
     <section class="about" id="about">
-        <div class="about-container">
-            <h2>About My Work</h2>
-            <p>For over fifteen years, I've dedicated my life to studying courage, vulnerability, shame, and empathy. My coaching practice is grounded in research and real-world experience, helping individuals and leaders cultivate wholehearted living.</p>
-            <p>Whether you're navigating a career transition, building authentic leadership skills, or seeking deeper connection in your relationships, I'm here to walk alongside you. Together, we'll explore what it means to live with courage and show up fully in your life.</p>
-            <p>This work isn't about perfection—it's about progress, compassion, and the willingness to be brave even when it's uncomfortable.</p>
+        <div class="about-hero">
+            <h1 class="about-main-heading">Do you have a hunger to increase the quality of your life?</h1>
+
+            <div class="about-content-grid">
+                <div class="about-image">
+                    <!-- Placeholder for coach image -->
+                    <div class="image-placeholder"></div>
+                </div>
+
+                <div class="about-text-content">
+                    <p>We believe progress equals happiness. And no matter where you're looking to excel, we're here to help you forge your pathway to power. Meet the person who's spent over 45 years creating breakthroughs and transforming lives.</p>
+                    <a href="#" class="btn-about">Meet Your Coach</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured In Section -->
+        <div class="featured-section">
+            <h3 class="featured-heading">Featured in:</h3>
+            <div class="featured-logos">
+                <div class="logo-placeholder">Forbes</div>
+                <div class="logo-placeholder">Fortune</div>
+                <div class="logo-placeholder">Inc.</div>
+                <div class="logo-placeholder">Success</div>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="video-section">
+            <div class="video-placeholder">
+                <button class="video-play-btn">▶ Watch video</button>
+            </div>
         </div>
     </section>
 
