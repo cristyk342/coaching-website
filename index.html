@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Coaching | Transform Your Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #f9f6f1;
+            color: #2b2b2b;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation - Brené Brown style */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #ffffff;
+            border-bottom: 1px solid #e8dfd4;
+            z-index: 1000;
+            padding: 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: #2b2b2b;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Georgia', serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2b2b2b;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            font-family: 'Georgia', serif;
+        }
+
+        .nav-links a:hover {
+            color: #d4a373;
+        }
+
+        /* Hero Section - Brené Brown style */
+        .hero {
+            padding: 160px 40px 100px;
+            background: #f9f6f1;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            margin-bottom: 25px;
+            color: #2b2b2b;
+            line-height: 1.2;
+            font-family: 'Georgia', serif;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #5a5a5a;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            font-family: 'Georgia', serif;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .btn-primary {
+            background: #d4a373;
+            color: #ffffff;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+            border: 2px solid #d4a373;
+        }
+
+        .btn-primary:hover {
+            background: #c4936b;
+            border-color: #c4936b;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #2b2b2b;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            border: 2px solid #2b2b2b;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-secondary:hover {
+            background: #2b2b2b;
+            color: #ffffff;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 40px;
+            background: #ffffff;
+            border-top: 1px solid #e8dfd4;
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #2b2b2b;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .about p {
+            font-size: 1.15rem;
+            color: #5a5a5a;
+            line-height: 1.9;
+            margin-bottom: 25px;
+            font-family: 'Georgia', serif;
+        }
+
+        /* Journey/Carousel Section */
+        .journey-section {
+            padding: 100px 40px;
+            background: #f9f6f1;
+            border-top: 1px solid #e8dfd4;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 70px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            color: #2b2b2b;
+            font-family: 'Georgia', serif;
+        }
+
+        .section-header p {
+            font-size: 1.15rem;
+            color: #5a5a5a;
+            line-height: 1.8;
+            font-family: 'Georgia', serif;
+        }
+
+        /* Carousel Container */
+        .carousel-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .carousel-container {
+            width: 100%;
+            background: #ffffff;
+            border-radius: 0;
+            box-shadow: none;
+            border: 1px solid #e8dfd4;
+            padding: 50px 60px;
+            position: relative;
+        }
+
+        .scenario {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .scenario.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .client-name {
+            font-size: 1.8rem;
+            color: #2b2b2b;
+            margin-bottom: 12px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            font-family: 'Georgia', serif;
+        }
+
+        .problem {
+            font-size: 1.05rem;
+            color: #5a5a5a;
+            font-style: italic;
+            margin-bottom: 0;
+            font-weight: 400;
+            font-family: 'Georgia', serif;
+        }
+
+        .tree-container {
+            position: relative;
+            height: 320px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .nodes-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .tree-row {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .node {
+            background: #f9f6f1;
+            border: 1.5px solid #d4a373;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8px;
+            box-shadow: none;
+            position: relative;
+            transition: all 0.3s ease;
+            animation: nodeAppear 0.6s ease-out backwards;
+        }
+
+        .node:hover {
+            transform: scale(1.05);
+            border-color: #c4936b;
+            background: #ffffff;
+        }
+
+        .node.start {
+            background: #d4a373;
+            border: none;
+            width: 88px;
+            height: 88px;
+            box-shadow: none;
+        }
+
+        .node.goal {
+            background: #ffffff;
+            border: 2px solid #d4a373;
+            width: 88px;
+            height: 88px;
+            box-shadow: none;
+        }
+
+        .node.start .node-label,
+        .node.goal .node-label {
+            color: #2b2b2b;
+            font-weight: 400;
+        }
+
+        .node.start .node-label {
+            color: #ffffff;
+        }
+
+        .node.start .node-number,
+        .node.goal .node-number {
+            display: none;
+        }
+
+        .node-number {
+            background: #d4a373;
+            color: #ffffff;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 400;
+            margin-bottom: 4px;
+            font-family: 'Georgia', serif;
+        }
+
+        .node-label {
+            font-size: 0.65rem;
+            color: #2b2b2b;
+            line-height: 1.2;
+            font-weight: 400;
+            font-family: 'Georgia', serif;
+        }
+
+        @keyframes nodeAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .path {
+            stroke: #d4a373;
+            stroke-width: 1.5;
+            fill: none;
+            stroke-linecap: round;
+            opacity: 0;
+            animation: pathDraw 0.8s ease-out forwards;
+        }
+
+        @keyframes pathDraw {
+            to {
+                opacity: 0.6;
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .btn {
+            background: #f9f6f1;
+            color: #2b2b2b;
+            border: 2px solid #e8dfd4;
+            padding: 10px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            box-shadow: none;
+            font-family: 'Georgia', serif;
+        }
+
+        .btn:hover:not(:disabled) {
+            background: #d4a373;
+            color: #ffffff;
+            border-color: #d4a373;
+        }
+
+        .btn:disabled {
+            background: #f9f6f1;
+            color: #cccccc;
+            border-color: #e8dfd4;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .indicators {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #e8dfd4;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator:hover {
+            background: #d4a373;
+        }
+
+        .indicator.active {
+            background: #d4a373;
+            width: 10px;
+            border-radius: 50%;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 100px 40px;
+            background: #ffffff;
+            border-top: 1px solid #e8dfd4;
+        }
+
+        .programs-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 60px;
+        }
+
+        .program-card {
+            background: transparent;
+            padding: 50px 0;
+            border-radius: 0;
+            border: none;
+            border-top: 1px solid #e8dfd4;
+            transition: all 0.3s ease;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .program-card:last-child {
+            border-bottom: 1px solid #e8dfd4;
+        }
+
+        .program-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            color: #2b2b2b;
+            font-weight: 400;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .program-content p {
+            color: #5a5a5a;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-family: 'Georgia', serif;
+            font-size: 1.05rem;
+        }
+
+        .program-content ul {
+            list-style: none;
+            color: #5a5a5a;
+            margin-bottom: 25px;
+        }
+
+        .program-content ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.7;
+            font-family: 'Georgia', serif;
+        }
+
+        .program-content ul li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #d4a373;
+            font-weight: 400;
+        }
+
+        .program-link {
+            color: #d4a373;
+            text-decoration: none;
+            font-weight: 400;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+            font-family: 'Georgia', serif;
+        }
+
+        .program-link:hover {
+            color: #c4936b;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 40px;
+            background: #2b2b2b;
+            color: #ffffff;
+            border-top: 1px solid #2b2b2b;
+        }
+
+        .testimonials-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 70px;
+            letter-spacing: 0.5px;
+            font-family: 'Georgia', serif;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            border: none;
+        }
+
+        .testimonial-card p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 25px;
+            color: #e8e8e8;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 3px;
+            font-family: 'Georgia', serif;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: #b8b8b8;
+            margin: 0;
+            font-style: normal;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 40px;
+            background: #d4a373;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            font-family: 'Georgia', serif;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            font-family: 'Georgia', serif;
+        }
+
+        .cta-section .btn-white {
+            background: #ffffff;
+            color: #2b2b2b;
+            padding: 14px 38px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+            border: 2px solid #ffffff;
+        }
+
+        .cta-section .btn-white:hover {
+            background: #f5f5f5;
+            border-color: #f5f5f5;
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 40px 40px;
+            background: #ffffff;
+            color: #2b2b2b;
+            border-top: 1px solid #e8dfd4;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-about h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-about p {
+            color: #5a5a5a;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-family: 'Georgia', serif;
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #2b2b2b;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #5a5a5a;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-family: 'Georgia', serif;
+        }
+
+        .footer-links a:hover {
+            color: #d4a373;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid #e8dfd4;
+            text-align: center;
+            color: #5a5a5a;
+            font-family: 'Georgia', serif;
+        }
+
+        @media (max-width: 1024px) {
+            .program-card {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nodes-container {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .tree-row {
+                flex-direction: row;
+                gap: 16px;
+            }
+
+            .node {
+                width: 64px;
+                height: 64px;
+            }
+
+            .node.start,
+            .node.goal {
+                width: 72px;
+                height: 72px;
+            }
+
+            .tree-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">YourCoach</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#journey">Your Journey</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#stories">Stories</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <h1>The Courage to Be Vulnerable</h1>
+            <p>Life coaching rooted in authenticity, connection, and the transformative power of showing up as your whole self.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Start Your Journey</a>
+                <a href="#journey" class="btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <h2>About My Work</h2>
+            <p>For over fifteen years, I've dedicated my life to studying courage, vulnerability, shame, and empathy. My coaching practice is grounded in research and real-world experience, helping individuals and leaders cultivate wholehearted living.</p>
+            <p>Whether you're navigating a career transition, building authentic leadership skills, or seeking deeper connection in your relationships, I'm here to walk alongside you. Together, we'll explore what it means to live with courage and show up fully in your life.</p>
+            <p>This work isn't about perfection—it's about progress, compassion, and the willingness to be brave even when it's uncomfortable.</p>
+        </div>
+    </section>
+
+    <!-- Journey/Skill Tree Section -->
+    <section class="journey-section" id="journey">
+        <div class="section-header">
+            <h2>Your Personal Journey</h2>
+            <p>Every transformation begins with a single brave step. Here's how we work together to move from where you are to where you want to be.</p>
+        </div>
+
+        <div class="carousel-wrapper">
+            <div class="carousel-container">
+                <!-- Scenario 1: Emily - Career Change -->
+                <div class="scenario active" id="scenario-1">
+                    <div class="header">
+                        <div class="client-name">Emily's Journey</div>
+                        <div class="problem">"I feel stuck in my career and don't know what's next for me"</div>
+                    </div>
+                    <div class="tree-container">
+                        <svg id="svg-1"></svg>
+                        <div class="nodes-container" id="nodes-1">
+                            <div class="tree-row">
+                                <div class="node start">
+                                    <div class="node-number">START</div>
+                                    <div class="node-label">Feeling Lost</div>
+                                </div>
+                            </div>
+                            <div class="tree-row">
+                                <div class="node" style="animation-delay: 0.1s">
+                                    <div class="node-number">1</div>
+                                    <div class="node-label">Skills Assessment</div>
+                                </div>
+                                <div class="node" style="animation-delay: 0.15s">
+                                    <div class="node-number">2</div>
+                                    <div class="node-label">Values Work</div>
+                                </div>
+                            </div>
+                            <div class="tree-row">
+                                <div class="node" style="animation-delay: 0.2s">
+                                    <div class="node-number">3</div>
+                                    <div class="node-label">Career Mapping</div>
+                                </div>
+                            </div>
+                            <div class="tree-row">
+                                <div class="node" style="animation-delay: 0.25s">
+                                    <div class="node-number">4</div>
+                                    <div class="node-label">Resume</div>
+                                </div>
+                                <div class="node" style="animation-delay: 0.3s">
+                                    <div class="node-number">5</div>
+                                    <div class="node-label">Interview Prep</div>
+                                </div>
+                                <div class="node" style="animation-delay: 0.35s">
+                                    <div class="node-number">6</div>
+                                    <div class="node-label">Networking</div>
+                                </div>
+                            </div>
+                            <div class="tree-row">
+                                <div class="node goal" style="animation-delay: 0.4s">
+                                    <div class="node-number">GOAL</div>
+                                    <div class="node-label">Dream Job!</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 2: Marcus - Work-Life Balance -->
+                <div class="scenario" id="scenario-2">
+                    <div class="header">
+                        <div class="client-name">Marcus's Journey</div>
+                        <div class="problem">"I'm burned out and my relationships are suffering"</div>
+                    </div>
+                    <div class="tree-container">
+                        <svg id="svg-2"></svg>
+                        <div class="nodes-container" id="nodes-2">
+                            <div class="tree-row">
+                                <div class="node start">
+                                    <div class="node-number">START</div>
+                                    <div class="node-label">Overwhelmed</div>
+                                </div>
+                            </div>
+                            <div class="tree-row">
+                                <div class="node" style="animation-delay: 0.1s">
+                                    <div class="node-number">1</div>
+                                    <div class="node-label">Energy Audit</div>
+                                </div>
+                                <div class="node" style="animation-delay: 0.15s">
+                                    <div class="node-number">2</div>
+                                    <div class="node-label">Boundaries</div>
+                                </div>
+                            </div>
+                            <div class="tree-row">
+                                <div class="node" style="animation-delay: 0.2s">
+                                    <div class="node-number">3</div>
+                                    <div class="node-label">Time Blocking</div>
+                                </div>
+                                <div class="node" style="animation-delay: 0.25s">
+                                    <div class="node-number">4</div>
+                                    <div class="node-label">Stress Mgmt</div>
+                                </div>
+                                <div class="node" style="animation-delay: 0.3s">
+                                    <div class="node-number">5</div>
+                                    <div class="node-label">Priorities</div>
+                                </div>
+                            </div>
+                            <div class="tree-row">
+                                <div class="node" style="animation-delay: 0.35s">
+                                    <div class="node-number">6</div>
+                                    <div class="node-label">Routines</div>
+                                </div>
+                                <div class="node" style="animation-delay: 0.4s">
+                                    <div class="node-number">7</div>
+                                    <div class="node-label">Relationships</div>
+                                </div>
+                            </div>
+                            <div class="tree-row">
+                                <div class="node goal" style="animation-delay: 0.45s">
+                                    <div class="node-number">GOAL</div>
+                                    <div class="node-label">Balanced Life</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 3: Sarah - Confidence Building -->
+                <div class="scenario" id="scenario-3">
+                    <div class="header">
+                        <div class="client-name">Sarah's Journey</div>
+                        <div class="problem">"I doubt myself constantly and miss opportunities"</div>
+                    </div>
+                    <div class="tree-container">
+                        <svg id="svg-3"></svg>
+                        <div class="nodes-container" id="nodes-3">
+                            <div class="tree-row">
+                                <div class="node start">
+                                    <div class="node-number">START</div>
+                                    <div class="node-label">Self-Doubt</div>
+                                </div>
+                            </div>
+                            <div class="tree-row">
+                                <div class="node" style="animation-delay: 0.1s">
+                                    <div class="node-number">1</div>
+                                    <div class="node-label">Belief Analysis</div>
+                                </div>
+                            </div>
+                            <div class="tree-row">
+                                <div class="node" style="animation-delay: 0.15s">
+                                    <div class="node-number">2</div>
+                                    <div class="node-label">Strengths</div>
+                                </div>
+                                <div class="node" style="animation-delay: 0.2s">
+                                    <div class="node-number">3</div>
+                                    <div class="node-label">Reframe</div>
+                                </div>
+                            </div>
+                            <div class="tree-row">
+                                <div class="node" style="animation-delay: 0.25s">
+                                    <div class="node-number">4</div>
+                                    <div class="node-label">Small Wins</div>
+                                </div>
+                            </div>
+                            <div class="tree-row">
+                                <div class="node" style="animation-delay: 0.3s">
+                                    <div class="node-number">5</div>
+                                    <div class="node-label">Speaking</div>
+                                </div>
+                                <div class="node" style="animation-delay: 0.35s">
+                                    <div class="node-number">6</div>
+                                    <div class="node-label">Advocacy</div>
+                                </div>
+                            </div>
+                            <div class="tree-row">
+                                <div class="node goal" style="animation-delay: 0.4s">
+                                    <div class="node-number">GOAL</div>
+                                    <div class="node-label">Confident Leader</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="btn" id="prevBtn">← Previous</button>
+                    <button class="btn" id="nextBtn">Next →</button>
+                </div>
+
+                <div class="indicators" id="indicators"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="section-header">
+            <h2>Coaching Programs</h2>
+            <p>Each program is designed to meet you where you are and guide you toward wholehearted living</p>
+        </div>
+        <div class="programs-grid">
+            <div class="program-card">
+                <h3>Career Courage</h3>
+                <div class="program-content">
+                    <p>Find work that aligns with your values and allows you to show up authentically. Navigate transitions with clarity and confidence.</p>
+                    <ul>
+                        <li>Values and strengths exploration</li>
+                        <li>Career path discernment</li>
+                        <li>Authentic personal branding</li>
+                        <li>Interview confidence building</li>
+                        <li>Meaningful networking strategies</li>
+                    </ul>
+                    <a href="#" class="program-link">Learn More →</a>
+                </div>
+            </div>
+            <div class="program-card">
+                <h3>Wholehearted Living</h3>
+                <div class="program-content">
+                    <p>Cultivate balance, set boundaries, and restore your energy for what matters most in work and life.</p>
+                    <ul>
+                        <li>Boundary setting practices</li>
+                        <li>Energy and time alignment</li>
+                        <li>Compassionate self-care</li>
+                        <li>Relationship communication</li>
+                        <li>Sustainable daily rhythms</li>
+                    </ul>
+                    <a href="#" class="program-link">Learn More →</a>
+                </div>
+            </div>
+            <div class="program-card">
+                <h3>Daring Leadership</h3>
+                <div class="program-content">
+                    <p>Lead with courage, vulnerability, and empathy. Build trust, inspire teams, and create meaningful impact.</p>
+                    <ul>
+                        <li>Vulnerability in leadership</li>
+                        <li>Building trust and connection</li>
+                        <li>Courageous conversations</li>
+                        <li>Values-driven decision making</li>
+                        <li>Leading with empathy</li>
+                    </ul>
+                    <a href="#" class="program-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="stories">
+        <div class="testimonials-container">
+            <h2>Client Stories</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"This work changed everything. I learned to embrace vulnerability and step into my authentic self. I finally landed a role where I can show up fully and make a real difference."</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Jennifer Martinez</h4>
+                            <p>Senior Product Manager</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I was drowning in perfectionism and burnout. Through our work together, I learned to set boundaries, practice self-compassion, and show up wholeheartedly in all areas of my life."</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>David Chen</h4>
+                            <p>Tech Entrepreneur</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The courage work we did together transformed how I lead. I went from hiding behind my armor to leading with authenticity and vulnerability. My team has never been more engaged."</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Amanda Williams</h4>
+                            <p>VP of Marketing</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I finally found the clarity I'd been searching for. This coaching helped me align my career with my values and step into work that feels meaningful and authentic."</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Michael Thompson</h4>
+                            <p>UX Design Lead</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="cta-content">
+            <h2>Ready to Begin?</h2>
+            <p>Schedule a complimentary discovery call to explore how coaching can support your journey toward courage, authenticity, and wholehearted living.</p>
+            <a href="#" class="btn-white">Book Your Call</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>YourCoach</h3>
+                <p>Helping individuals and leaders cultivate courage, embrace vulnerability, and live wholeheartedly through research-grounded coaching.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#journey">How It Works</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#stories">Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Writing</a></li>
+                    <li><a href="#">Podcast</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">Free Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Email</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 YourCoach. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentScenario = 0;
+        const totalScenarios = 3;
+
+        function drawPaths(scenarioNum) {
+            const svg = document.getElementById(`svg-${scenarioNum}`);
+            if (!svg) return;
+
+            const nodes = document.querySelectorAll(`#nodes-${scenarioNum} .node`);
+            svg.innerHTML = '';
+
+            const nodePositions = Array.from(nodes).map(node => {
+                const rect = node.getBoundingClientRect();
+                const containerRect = svg.getBoundingClientRect();
+                return {
+                    x: rect.left + rect.width / 2 - containerRect.left,
+                    y: rect.top + rect.height / 2 - containerRect.top
+                };
+            });
+
+            const connections = getConnectionsForScenario(scenarioNum, nodePositions.length);
+
+            connections.forEach((conn, index) => {
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                const start = nodePositions[conn.from];
+                const end = nodePositions[conn.to];
+
+                const midY = (start.y + end.y) / 2;
+                const d = `M ${start.x} ${start.y} Q ${start.x} ${midY}, ${(start.x + end.x) / 2} ${midY} T ${end.x} ${end.y}`;
+
+                path.setAttribute('d', d);
+                path.setAttribute('class', 'path');
+
+                const length = path.getTotalLength();
+                path.style.strokeDasharray = length;
+                path.style.strokeDashoffset = length;
+                path.style.animationDelay = `${index * 0.1 + 0.2}s`;
+
+                svg.appendChild(path);
+            });
+        }
+
+        function getConnectionsForScenario(scenarioNum, totalNodes) {
+            const patterns = {
+                1: [
+                    {from: 0, to: 1}, {from: 0, to: 2},
+                    {from: 1, to: 3}, {from: 2, to: 3},
+                    {from: 3, to: 4}, {from: 3, to: 5}, {from: 3, to: 6},
+                    {from: 4, to: 7}, {from: 5, to: 7}, {from: 6, to: 7}
+                ],
+                2: [
+                    {from: 0, to: 1}, {from: 0, to: 2},
+                    {from: 1, to: 3}, {from: 1, to: 4}, {from: 2, to: 4}, {from: 2, to: 5},
+                    {from: 3, to: 6}, {from: 4, to: 6}, {from: 4, to: 7}, {from: 5, to: 7},
+                    {from: 6, to: 8}, {from: 7, to: 8}
+                ],
+                3: [
+                    {from: 0, to: 1},
+                    {from: 1, to: 2}, {from: 1, to: 3},
+                    {from: 2, to: 4}, {from: 3, to: 4},
+                    {from: 4, to: 5}, {from: 4, to: 6},
+                    {from: 5, to: 7}, {from: 6, to: 7}
+                ]
+            };
+
+            return patterns[scenarioNum] || [];
+        }
+
+        function showScenario(index) {
+            document.querySelectorAll('.scenario').forEach((scenario, i) => {
+                scenario.classList.toggle('active', i === index);
+            });
+
+            document.querySelectorAll('.indicator').forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('nextBtn').disabled = index === totalScenarios - 1;
+
+            setTimeout(() => drawPaths(index + 1), 100);
+        }
+
+        function initCarousel() {
+            const indicatorsContainer = document.getElementById('indicators');
+            for (let i = 0; i < totalScenarios; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = 'indicator' + (i === 0 ? ' active' : '');
+                indicator.addEventListener('click', () => {
+                    currentScenario = i;
+                    showScenario(currentScenario);
+                });
+                indicatorsContainer.appendChild(indicator);
+            }
+
+            document.getElementById('prevBtn').addEventListener('click', () => {
+                if (currentScenario > 0) {
+                    currentScenario--;
+                    showScenario(currentScenario);
+                }
+            });
+
+            document.getElementById('nextBtn').addEventListener('click', () => {
+                if (currentScenario < totalScenarios - 1) {
+                    currentScenario++;
+                    showScenario(currentScenario);
+                }
+            });
+
+            drawPaths(1);
+        }
+
+        window.addEventListener('load', initCarousel);
+        window.addEventListener('resize', () => drawPaths(currentScenario + 1));
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
