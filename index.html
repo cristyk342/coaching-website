@@ -611,6 +611,205 @@
             border-radius: 50%;
         }
 
+        /* Events Carousel Section */
+        .events-section {
+            padding: 100px 40px;
+            background: #ffffff;
+            border-top: 1px solid #e8dfd4;
+        }
+
+        .events-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .events-container h2 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #2b2b2b;
+            letter-spacing: 0.5px;
+            font-family: 'Georgia', serif;
+        }
+
+        .events-subtitle {
+            font-size: 1.15rem;
+            color: #5a5a5a;
+            text-align: center;
+            margin-bottom: 60px;
+            font-family: 'Georgia', serif;
+        }
+
+        .events-carousel {
+            position: relative;
+            padding: 0 60px;
+        }
+
+        .events-track-container {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .events-track {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.5s ease;
+        }
+
+        .event-card {
+            min-width: 380px;
+            border-radius: 8px;
+            padding: 40px 35px;
+            color: #ffffff;
+            flex-shrink: 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .event-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-family: 'Georgia', serif;
+        }
+
+        .event-card h3 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+            line-height: 1.2;
+            font-family: 'Georgia', serif;
+        }
+
+        .event-tagline {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            opacity: 0.95;
+            font-family: 'Georgia', serif;
+        }
+
+        .event-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            opacity: 0.9;
+            font-family: 'Georgia', serif;
+        }
+
+        .event-details {
+            margin-bottom: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .event-date,
+        .event-location {
+            font-size: 0.95rem;
+            margin: 6px 0;
+            opacity: 0.95;
+            font-family: 'Georgia', serif;
+        }
+
+        .event-btn {
+            display: inline-block;
+            background: #ffffff;
+            color: #2b2b2b;
+            padding: 12px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+            border: 2px solid #ffffff;
+        }
+
+        .event-btn:hover {
+            background: transparent;
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ffffff;
+            border: 2px solid #e8dfd4;
+            color: #2b2b2b;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Georgia', serif;
+        }
+
+        .carousel-nav:hover:not(:disabled) {
+            background: #d4a373;
+            color: #ffffff;
+            border-color: #d4a373;
+        }
+
+        .carousel-nav:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .carousel-nav.prev {
+            left: 0;
+        }
+
+        .carousel-nav.next {
+            right: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .event-card {
+                min-width: 340px;
+            }
+
+            .events-carousel {
+                padding: 0 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .event-card {
+                min-width: 280px;
+            }
+
+            .events-carousel {
+                padding: 0 40px;
+            }
+
+            .carousel-nav {
+                width: 38px;
+                height: 38px;
+                font-size: 1.2rem;
+            }
+        }
+
         /* Programs Section */
         .programs {
             padding: 100px 40px;
@@ -1067,6 +1266,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#journey">Your Journey</a></li>
+                <li><a href="#events">Events</a></li>
                 <li><a href="#programs">Programs</a></li>
                 <li><a href="#stories">Stories</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -1309,6 +1509,100 @@
                 </div>
 
                 <div class="indicators" id="indicators"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Carousel Section -->
+    <section class="events-section" id="events">
+        <div class="events-container">
+            <h2>Transformational Events That Liberate</h2>
+            <p class="events-subtitle">Join us for life-changing experiences designed to unlock your potential</p>
+
+            <div class="events-carousel">
+                <button class="carousel-nav prev" id="eventsPrev">‹</button>
+                <div class="events-track-container">
+                    <div class="events-track" id="eventsTrack">
+                        <!-- Event Card 1 -->
+                        <div class="event-card" style="background: linear-gradient(135deg, #d4a373 0%, #c4936b 100%);">
+                            <div class="event-badge">In-Person & Virtual</div>
+                            <h3>Courage Intensive</h3>
+                            <p class="event-tagline">Dare to lead authentically</p>
+                            <p class="event-description">A transformative 3-day immersion into vulnerability, courage, and authentic leadership. Learn to lead with heart and build trust-based teams.</p>
+                            <div class="event-details">
+                                <p class="event-date">Next Event: March 15-17, 2025</p>
+                                <p class="event-location">Austin, TX</p>
+                            </div>
+                            <a href="#" class="event-btn">Schedule a Call</a>
+                        </div>
+
+                        <!-- Event Card 2 -->
+                        <div class="event-card" style="background: linear-gradient(135deg, #7b9e87 0%, #6a8d76 100%);">
+                            <div class="event-badge">Virtual</div>
+                            <h3>Wholehearted Living Workshop</h3>
+                            <p class="event-tagline">Embrace your authentic self</p>
+                            <p class="event-description">Discover the practices that cultivate resilience, compassion, and wholehearted living. Set boundaries, restore balance, and reconnect with what matters.</p>
+                            <div class="event-details">
+                                <p class="event-date">Next Event: February 10-11, 2025</p>
+                                <p class="event-location">Online</p>
+                            </div>
+                            <a href="#" class="event-btn">Sign Up Now</a>
+                        </div>
+
+                        <!-- Event Card 3 -->
+                        <div class="event-card" style="background: linear-gradient(135deg, #9b7e6b 0%, #8a6d5a 100%);">
+                            <div class="event-badge">In-Person</div>
+                            <h3>Values & Vision Retreat</h3>
+                            <p class="event-tagline">Align your life with purpose</p>
+                            <p class="event-description">A rejuvenating weekend retreat to clarify your core values, envision your future, and create an actionable roadmap for meaningful change.</p>
+                            <div class="event-details">
+                                <p class="event-date">Next Event: April 5-7, 2025</p>
+                                <p class="event-location">Sedona, AZ</p>
+                            </div>
+                            <a href="#" class="event-btn">Apply Now</a>
+                        </div>
+
+                        <!-- Event Card 4 -->
+                        <div class="event-card" style="background: linear-gradient(135deg, #6b8b9e 0%, #5a7a8d 100%);">
+                            <div class="event-badge">Virtual</div>
+                            <h3>Rising Strong Workshop</h3>
+                            <p class="event-tagline">Turn setbacks into comebacks</p>
+                            <p class="event-description">Learn the process of rising strong after failures and disappointments. Transform shame and fear into growth, resilience, and wisdom.</p>
+                            <div class="event-details">
+                                <p class="event-date">Next Event: March 1-2, 2025</p>
+                                <p class="event-location">Online</p>
+                            </div>
+                            <a href="#" class="event-btn">Register Today</a>
+                        </div>
+
+                        <!-- Event Card 5 -->
+                        <div class="event-card" style="background: linear-gradient(135deg, #a97c7c 0%, #986b6b 100%);">
+                            <div class="event-badge">In-Person</div>
+                            <h3>Leadership Mastery</h3>
+                            <p class="event-tagline">Lead with vulnerability and strength</p>
+                            <p class="event-description">An exclusive 5-day intensive for executives and leaders ready to transform their organizations through daring, empathetic leadership.</p>
+                            <div class="event-details">
+                                <p class="event-date">Next Event: May 20-24, 2025</p>
+                                <p class="event-location">Santa Fe, NM</p>
+                            </div>
+                            <a href="#" class="event-btn">Schedule a Call</a>
+                        </div>
+
+                        <!-- Event Card 6 -->
+                        <div class="event-card" style="background: linear-gradient(135deg, #7c8a9e 0%, #6b798d 100%);">
+                            <div class="event-badge">In-Person & Virtual</div>
+                            <h3>Boundaries & Balance</h3>
+                            <p class="event-tagline">Reclaim your energy and time</p>
+                            <p class="event-description">Master the art of setting healthy boundaries in work and life. Create sustainable rhythms and protect your well-being without guilt.</p>
+                            <div class="event-details">
+                                <p class="event-date">Next Event: February 22-23, 2025</p>
+                                <p class="event-location">Denver, CO</p>
+                            </div>
+                            <a href="#" class="event-btn">Join Us</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-nav next" id="eventsNext">›</button>
             </div>
         </div>
     </section>
@@ -1635,6 +1929,58 @@
 
         window.addEventListener('load', initCarousel);
         window.addEventListener('resize', () => drawPaths(currentScenario + 1));
+
+        // Events Carousel
+        let currentPosition = 0;
+        const eventsTrack = document.getElementById('eventsTrack');
+        const eventsPrev = document.getElementById('eventsPrev');
+        const eventsNext = document.getElementById('eventsNext');
+        const eventCards = document.querySelectorAll('.event-card');
+
+        function updateCarouselPosition() {
+            eventsTrack.style.transform = `translateX(-${currentPosition}px)`;
+            updateCarouselButtons();
+        }
+
+        function updateCarouselButtons() {
+            eventsPrev.disabled = currentPosition <= 0;
+
+            const trackWidth = eventsTrack.scrollWidth;
+            const containerWidth = eventsTrack.parentElement.offsetWidth;
+            const maxPosition = trackWidth - containerWidth;
+
+            eventsNext.disabled = currentPosition >= maxPosition;
+        }
+
+        function scrollCarousel(direction) {
+            const cardWidth = eventCards[0].offsetWidth;
+            const gap = 30;
+            const scrollAmount = cardWidth + gap;
+
+            if (direction === 'next') {
+                const trackWidth = eventsTrack.scrollWidth;
+                const containerWidth = eventsTrack.parentElement.offsetWidth;
+                const maxPosition = trackWidth - containerWidth;
+
+                currentPosition = Math.min(currentPosition + scrollAmount, maxPosition);
+            } else {
+                currentPosition = Math.max(currentPosition - scrollAmount, 0);
+            }
+
+            updateCarouselPosition();
+        }
+
+        eventsPrev.addEventListener('click', () => scrollCarousel('prev'));
+        eventsNext.addEventListener('click', () => scrollCarousel('next'));
+
+        window.addEventListener('resize', () => {
+            currentPosition = 0;
+            updateCarouselPosition();
+        });
+
+        window.addEventListener('load', () => {
+            updateCarouselButtons();
+        });
 
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
