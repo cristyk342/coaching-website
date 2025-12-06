@@ -181,28 +181,43 @@
             width: 100%;
         }
 
-        .image-placeholder {
+        .image-wrapper {
             width: 100%;
             aspect-ratio: 4/5;
-            background: linear-gradient(135deg, #4a7ec9 0%, #6b9ed9 100%);
             border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
 
-        .image-placeholder::after {
+        .coach-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 163, 115, 0.15) 0%, rgba(196, 147, 107, 0.1) 100%);
+            pointer-events: none;
+            mix-blend-mode: multiply;
+        }
+
+        .image-wrapper::after {
             content: '';
             position: absolute;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, rgba(43, 43, 43, 0.3) 0%, transparent 100%);
+            pointer-events: none;
         }
 
         .about-text-content {
@@ -1293,8 +1308,11 @@
 
             <div class="about-content-grid">
                 <div class="about-image">
-                    <!-- Placeholder for coach image -->
-                    <div class="image-placeholder"></div>
+                    <!-- Coach image -->
+                    <div class="image-wrapper">
+                        <img src="images/coach-quality-section.jpg" alt="Smiling coach welcoming you to begin your transformation journey" class="coach-image">
+                        <div class="image-overlay"></div>
+                    </div>
                 </div>
 
                 <div class="about-text-content">
