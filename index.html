@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life Coaching | Transform Your Journey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -70,14 +71,79 @@
 
         /* Hero Section - Brené Brown style */
         .hero {
-            padding: 160px 40px 100px;
-            background: #f9f6f1;
+            margin-top: 80px;
+            background: #f8f3ea;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-video-bg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(212, 163, 115, 0.4);
+            pointer-events: none;
+        }
+
+        .hero-social-icons {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 25px;
+            z-index: 2;
+            justify-content: center;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .social-icon:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-buttons-overlay {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            gap: 20px;
+            z-index: 2;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .hero-container {
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
@@ -85,14 +151,14 @@
             font-weight: 400;
             letter-spacing: 0.5px;
             margin-bottom: 25px;
-            color: #2b2b2b;
+            color: #ffffff;
             line-height: 1.2;
             font-family: 'Georgia', serif;
         }
 
         .hero p {
             font-size: 1.25rem;
-            color: #5a5a5a;
+            color: #ffffff;
             max-width: 700px;
             margin: 0 auto 40px;
             line-height: 1.8;
@@ -128,8 +194,8 @@
         }
 
         .btn-secondary {
-            background: transparent;
-            color: #2b2b2b;
+            background: #2b2b2b;
+            color: #ffffff;
             padding: 14px 36px;
             border-radius: 50px;
             text-decoration: none;
@@ -143,8 +209,8 @@
         }
 
         .btn-secondary:hover {
-            background: #2b2b2b;
-            color: #ffffff;
+            background: transparent;
+            color: #2b2b2b;
         }
 
         /* About Section */
@@ -171,7 +237,7 @@
 
         .about-content-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 0.5fr 1.5fr;
             gap: 60px;
             align-items: center;
             margin-bottom: 100px;
@@ -183,11 +249,18 @@
 
         .image-wrapper {
             width: 100%;
-            aspect-ratio: 4/5;
+            aspect-ratio: 3/4;
             border-radius: 20px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 60px rgba(212, 163, 115, 0.25), 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 3px solid #ffffff;
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .image-wrapper:hover {
+            transform: rotate(0deg) scale(1.02);
         }
 
         .coach-image {
@@ -229,10 +302,42 @@
 
         .about-text-content p {
             font-size: 1.25rem;
-            line-height: 1.7;
+            line-height: 1.8;
             color: #333333;
             margin-bottom: 40px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Georgia', serif;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d4a373 0%, #c4936b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            font-family: 'Georgia', serif;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #5a5a5a;
+            font-family: 'Georgia', serif;
+            font-weight: 400;
         }
 
         .btn-about {
@@ -288,55 +393,127 @@
             padding: 20px;
         }
 
-        /* Video Section */
-        .video-section {
+        /* Impact Carousel Section */
+        .impact-carousel-section {
             max-width: 1400px;
             margin: 0 auto;
+            position: relative;
         }
 
-        .video-placeholder {
+        .impact-carousel-container {
             width: 100%;
             aspect-ratio: 16/9;
-            background: linear-gradient(to bottom, #1a1a2e 0%, #0f0f1e 100%);
             border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             position: relative;
             overflow: hidden;
         }
 
-        .video-placeholder::before {
-            content: '';
+        .impact-slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            animation: fadeInImpact 1s ease-in-out;
+        }
+
+        .impact-slide.active {
+            display: block;
+        }
+
+        @keyframes fadeInImpact {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .impact-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .impact-overlay {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, rgba(100, 100, 255, 0.1) 0%, transparent 70%);
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(43, 43, 43, 0.7) 0%, rgba(212, 163, 115, 0.6) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px;
         }
 
-        .video-play-btn {
-            background: rgba(0, 0, 0, 0.8);
+        .impact-overlay h3 {
+            font-size: 3rem;
+            font-weight: 400;
             color: #ffffff;
-            border: none;
-            padding: 18px 40px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-family: 'Georgia', serif;
+            max-width: 800px;
+        }
+
+        .impact-overlay p {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 35px;
+            line-height: 1.6;
+            font-family: 'Georgia', serif;
+            max-width: 700px;
+            opacity: 0.95;
+        }
+
+        .impact-btn {
+            background: #d4a373;
+            color: #ffffff;
+            padding: 16px 40px;
             border-radius: 50px;
+            text-decoration: none;
+            font-weight: 400;
             font-size: 1rem;
-            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+            border: 2px solid #d4a373;
+            display: inline-block;
+        }
+
+        .impact-btn:hover {
+            background: #c4936b;
+            border-color: #c4936b;
+            transform: translateY(-2px);
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
             cursor: pointer;
             transition: all 0.3s ease;
-            z-index: 10;
-            position: relative;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
-        .video-play-btn:hover {
-            background: rgba(0, 0, 0, 0.95);
-            transform: scale(1.05);
+        .carousel-dot.active {
+            background: #ffffff;
+            width: 12px;
+        }
+
+        .carousel-dot:hover {
+            background: rgba(255, 255, 255, 0.8);
         }
 
         /* Journey/Carousel Section */
@@ -917,7 +1094,7 @@
             right: 50%;
             margin-left: -50vw;
             margin-right: -50vw;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4a373 0%, #c4936b 100%);
             overflow: hidden;
             min-height: 600px;
         }
@@ -1022,8 +1199,9 @@
         /* CTA Section */
         .cta-section {
             padding: 100px 40px;
-            background: #d4a373;
+            background: #f8f3ea;
             text-align: center;
+            border-top: 1px solid #e8dfd4;
         }
 
         .cta-content {
@@ -1035,22 +1213,22 @@
             font-size: 2.8rem;
             font-weight: 400;
             margin-bottom: 20px;
-            color: #ffffff;
+            color: #2b2b2b;
             letter-spacing: 0.5px;
             font-family: 'Georgia', serif;
         }
 
         .cta-section p {
             font-size: 1.2rem;
-            color: #ffffff;
+            color: #5a5a5a;
             margin-bottom: 40px;
             line-height: 1.7;
             font-family: 'Georgia', serif;
         }
 
         .cta-section .btn-white {
-            background: #ffffff;
-            color: #2b2b2b;
+            background: #d4a373;
+            color: #ffffff;
             padding: 14px 38px;
             border-radius: 50px;
             text-decoration: none;
@@ -1060,12 +1238,12 @@
             transition: all 0.3s ease;
             font-family: 'Georgia', serif;
             letter-spacing: 0.5px;
-            border: 2px solid #ffffff;
+            border: 2px solid #d4a373;
         }
 
         .cta-section .btn-white:hover {
-            background: #f5f5f5;
-            border-color: #f5f5f5;
+            background: #c4936b;
+            border-color: #c4936b;
         }
 
         /* Footer */
@@ -1185,8 +1363,33 @@
                 display: none;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero {
+                margin-top: 70px;
+            }
+
+            .hero-buttons-overlay {
+                padding: 0 20px;
+                width: 100%;
+            }
+
+            .hero-social-icons {
+                top: 60%;
+                gap: 20px;
+            }
+
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons-overlay {
+                top: 82%;
+            }
+
+            .hero-buttons-overlay a {
+                font-size: 0.85rem;
+                padding: 12px 28px;
             }
 
             .about-main-heading {
@@ -1202,6 +1405,15 @@
                 font-size: 1.1rem;
             }
 
+            .stats-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
             .featured-section {
                 padding: 40px 30px;
             }
@@ -1213,6 +1425,25 @@
 
             .logo-placeholder {
                 font-size: 1.5rem;
+            }
+
+            .impact-overlay {
+                padding: 30px 20px;
+            }
+
+            .impact-overlay h3 {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+
+            .impact-overlay p {
+                font-size: 1.1rem;
+                margin-bottom: 25px;
+            }
+
+            .impact-btn {
+                padding: 14px 32px;
+                font-size: 0.95rem;
             }
 
             .nodes-container {
@@ -1291,12 +1522,118 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-container">
-            <h1>The Courage to Be Vulnerable</h1>
-            <p>Life coaching rooted in authenticity, connection, and the transformative power of showing up as your whole self.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">Start Your Journey</a>
-                <a href="#journey" class="btn-secondary">Learn More</a>
+        <img src="IMG_0068.jpeg" alt="Hero Background" class="hero-video-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-social-icons">
+            <a href="#" class="social-icon" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        <div class="hero-buttons-overlay">
+            <a href="#contact" class="btn-primary">Start Your Journey</a>
+            <a href="#journey" class="btn-secondary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Events Carousel Section -->
+    <section class="events-section" id="events">
+        <div class="events-container">
+            <h2>Transformational Events That Liberate</h2>
+            <p class="events-subtitle">Join us for life-changing experiences designed to unlock your potential</p>
+
+            <div class="events-carousel">
+                <button class="carousel-nav prev" id="eventsPrev">‹</button>
+                <div class="events-track-container">
+                    <div class="events-track" id="eventsTrack">
+                        <!-- Event Card 1 -->
+                        <div class="event-card" style="background: linear-gradient(135deg, #d4a373 0%, #c4936b 100%);">
+                            <div class="event-badge">In-Person & Virtual</div>
+                            <h3>Courage Intensive</h3>
+                            <p class="event-tagline">Dare to lead authentically</p>
+                            <p class="event-description">A transformative 3-day immersion into vulnerability, courage, and authentic leadership. Learn to lead with heart and build trust-based teams.</p>
+                            <div class="event-details">
+                                <p class="event-date">Next Event: March 15-17, 2025</p>
+                                <p class="event-location">Austin, TX</p>
+                            </div>
+                            <a href="#" class="event-btn">Schedule a Call</a>
+                        </div>
+
+                        <!-- Event Card 2 -->
+                        <div class="event-card" style="background: linear-gradient(135deg, #7b9e87 0%, #6a8d76 100%);">
+                            <div class="event-badge">Virtual</div>
+                            <h3>Wholehearted Living Workshop</h3>
+                            <p class="event-tagline">Embrace your authentic self</p>
+                            <p class="event-description">Discover the practices that cultivate resilience, compassion, and wholehearted living. Set boundaries, restore balance, and reconnect with what matters.</p>
+                            <div class="event-details">
+                                <p class="event-date">Next Event: February 10-11, 2025</p>
+                                <p class="event-location">Online</p>
+                            </div>
+                            <a href="#" class="event-btn">Sign Up Now</a>
+                        </div>
+
+                        <!-- Event Card 3 -->
+                        <div class="event-card" style="background: linear-gradient(135deg, #9b7e6b 0%, #8a6d5a 100%);">
+                            <div class="event-badge">In-Person</div>
+                            <h3>Values & Vision Retreat</h3>
+                            <p class="event-tagline">Align your life with purpose</p>
+                            <p class="event-description">A rejuvenating weekend retreat to clarify your core values, envision your future, and create an actionable roadmap for meaningful change.</p>
+                            <div class="event-details">
+                                <p class="event-date">Next Event: April 5-7, 2025</p>
+                                <p class="event-location">Sedona, AZ</p>
+                            </div>
+                            <a href="#" class="event-btn">Apply Now</a>
+                        </div>
+
+                        <!-- Event Card 4 -->
+                        <div class="event-card" style="background: linear-gradient(135deg, #6b8b9e 0%, #5a7a8d 100%);">
+                            <div class="event-badge">Virtual</div>
+                            <h3>Rising Strong Workshop</h3>
+                            <p class="event-tagline">Turn setbacks into comebacks</p>
+                            <p class="event-description">Learn the process of rising strong after failures and disappointments. Transform shame and fear into growth, resilience, and wisdom.</p>
+                            <div class="event-details">
+                                <p class="event-date">Next Event: March 1-2, 2025</p>
+                                <p class="event-location">Online</p>
+                            </div>
+                            <a href="#" class="event-btn">Register Today</a>
+                        </div>
+
+                        <!-- Event Card 5 -->
+                        <div class="event-card" style="background: linear-gradient(135deg, #a97c7c 0%, #986b6b 100%);">
+                            <div class="event-badge">In-Person</div>
+                            <h3>Leadership Mastery</h3>
+                            <p class="event-tagline">Lead with vulnerability and strength</p>
+                            <p class="event-description">An exclusive 5-day intensive for executives and leaders ready to transform their organizations through daring, empathetic leadership.</p>
+                            <div class="event-details">
+                                <p class="event-date">Next Event: May 20-24, 2025</p>
+                                <p class="event-location">Santa Fe, NM</p>
+                            </div>
+                            <a href="#" class="event-btn">Schedule a Call</a>
+                        </div>
+
+                        <!-- Event Card 6 -->
+                        <div class="event-card" style="background: linear-gradient(135deg, #7c8a9e 0%, #6b798d 100%);">
+                            <div class="event-badge">In-Person & Virtual</div>
+                            <h3>Boundaries & Balance</h3>
+                            <p class="event-tagline">Reclaim your energy and time</p>
+                            <p class="event-description">Master the art of setting healthy boundaries in work and life. Create sustainable rhythms and protect your well-being without guilt.</p>
+                            <div class="event-details">
+                                <p class="event-date">Next Event: February 22-23, 2025</p>
+                                <p class="event-location">Denver, CO</p>
+                            </div>
+                            <a href="#" class="event-btn">Join Us</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-nav next" id="eventsNext">›</button>
             </div>
         </div>
     </section>
@@ -1308,14 +1645,31 @@
 
             <div class="about-content-grid">
                 <div class="about-image">
-                    <!-- Coach image -->
+                    <!-- Coach video -->
                     <div class="image-wrapper">
-                        <img src="images/coach-quality-section.jpg" alt="Smiling coach welcoming you to begin your transformation journey" class="coach-image">
+                        <video autoplay muted loop playsinline class="coach-image">
+                            <source src="grok-video-5498d194-e035-45ee-8aa5-1be5685db1c7.mov" type="video/quicktime">
+                            Your browser does not support the video tag.
+                        </video>
                         <div class="image-overlay"></div>
                     </div>
                 </div>
 
                 <div class="about-text-content">
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <div class="stat-number">45+</div>
+                            <div class="stat-label">Years of Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10K+</div>
+                            <div class="stat-label">Lives Transformed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Success Rate</div>
+                        </div>
+                    </div>
                     <p>We believe progress equals happiness. And no matter where you're looking to excel, we're here to help you forge your pathway to power. Meet the person who's spent over 45 years creating breakthroughs and transforming lives.</p>
                     <a href="#" class="btn-about">Meet Your Coach</a>
                 </div>
@@ -1324,19 +1678,54 @@
 
         <!-- Featured In Section -->
         <div class="featured-section">
-            <h3 class="featured-heading">Featured in:</h3>
+            <h3 class="featured-heading">Worked with</h3>
             <div class="featured-logos">
-                <div class="logo-placeholder">Forbes</div>
-                <div class="logo-placeholder">Fortune</div>
-                <div class="logo-placeholder">Inc.</div>
-                <div class="logo-placeholder">Success</div>
+                <div class="logo-placeholder">Discover</div>
+                <div class="logo-placeholder">VISA</div>
+                <div class="logo-placeholder">Sage</div>
+                <div class="logo-placeholder">FIS</div>
             </div>
         </div>
 
-        <!-- Video Section -->
-        <div class="video-section">
-            <div class="video-placeholder">
-                <button class="video-play-btn">▶ Watch video</button>
+        <!-- Impact Carousel Section -->
+        <div class="impact-carousel-section">
+            <div class="impact-carousel-container">
+                <!-- Slide 1: Woman Sitting -->
+                <div class="impact-slide active" data-index="0">
+                    <img src="IMG_0071.jpeg" alt="Woman reflecting on her journey">
+                    <div class="impact-overlay">
+                        <h3>Transform Your Career</h3>
+                        <p>Discover clarity, confidence, and purpose in your professional journey through personalized coaching</p>
+                        <a href="#contact" class="impact-btn">Start Now</a>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Man Standing -->
+                <div class="impact-slide" data-index="1">
+                    <img src="IMG_0072.jpeg" alt="Man standing confidently">
+                    <div class="impact-overlay">
+                        <h3>Lead with Authenticity</h3>
+                        <p>Embrace vulnerability and courage to become the leader you were meant to be</p>
+                        <a href="#contact" class="impact-btn">Start Now</a>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Man with Dog -->
+                <div class="impact-slide" data-index="2">
+                    <img src="IMG_0073.jpeg" alt="Man with dog enjoying life">
+                    <div class="impact-overlay">
+                        <h3>Find Balance & Joy</h3>
+                        <p>Create a life that honors your values and nurtures what matters most</p>
+                        <a href="#contact" class="impact-btn">Start Now</a>
+                    </div>
+                </div>
+
+                <!-- Carousel Indicators -->
+                <div class="carousel-indicators">
+                    <span class="carousel-dot active" data-slide="0"></span>
+                    <span class="carousel-dot" data-slide="1"></span>
+                    <span class="carousel-dot" data-slide="2"></span>
+                </div>
             </div>
         </div>
     </section>
@@ -1531,100 +1920,6 @@
         </div>
     </section>
 
-    <!-- Events Carousel Section -->
-    <section class="events-section" id="events">
-        <div class="events-container">
-            <h2>Transformational Events That Liberate</h2>
-            <p class="events-subtitle">Join us for life-changing experiences designed to unlock your potential</p>
-
-            <div class="events-carousel">
-                <button class="carousel-nav prev" id="eventsPrev">‹</button>
-                <div class="events-track-container">
-                    <div class="events-track" id="eventsTrack">
-                        <!-- Event Card 1 -->
-                        <div class="event-card" style="background: linear-gradient(135deg, #d4a373 0%, #c4936b 100%);">
-                            <div class="event-badge">In-Person & Virtual</div>
-                            <h3>Courage Intensive</h3>
-                            <p class="event-tagline">Dare to lead authentically</p>
-                            <p class="event-description">A transformative 3-day immersion into vulnerability, courage, and authentic leadership. Learn to lead with heart and build trust-based teams.</p>
-                            <div class="event-details">
-                                <p class="event-date">Next Event: March 15-17, 2025</p>
-                                <p class="event-location">Austin, TX</p>
-                            </div>
-                            <a href="#" class="event-btn">Schedule a Call</a>
-                        </div>
-
-                        <!-- Event Card 2 -->
-                        <div class="event-card" style="background: linear-gradient(135deg, #7b9e87 0%, #6a8d76 100%);">
-                            <div class="event-badge">Virtual</div>
-                            <h3>Wholehearted Living Workshop</h3>
-                            <p class="event-tagline">Embrace your authentic self</p>
-                            <p class="event-description">Discover the practices that cultivate resilience, compassion, and wholehearted living. Set boundaries, restore balance, and reconnect with what matters.</p>
-                            <div class="event-details">
-                                <p class="event-date">Next Event: February 10-11, 2025</p>
-                                <p class="event-location">Online</p>
-                            </div>
-                            <a href="#" class="event-btn">Sign Up Now</a>
-                        </div>
-
-                        <!-- Event Card 3 -->
-                        <div class="event-card" style="background: linear-gradient(135deg, #9b7e6b 0%, #8a6d5a 100%);">
-                            <div class="event-badge">In-Person</div>
-                            <h3>Values & Vision Retreat</h3>
-                            <p class="event-tagline">Align your life with purpose</p>
-                            <p class="event-description">A rejuvenating weekend retreat to clarify your core values, envision your future, and create an actionable roadmap for meaningful change.</p>
-                            <div class="event-details">
-                                <p class="event-date">Next Event: April 5-7, 2025</p>
-                                <p class="event-location">Sedona, AZ</p>
-                            </div>
-                            <a href="#" class="event-btn">Apply Now</a>
-                        </div>
-
-                        <!-- Event Card 4 -->
-                        <div class="event-card" style="background: linear-gradient(135deg, #6b8b9e 0%, #5a7a8d 100%);">
-                            <div class="event-badge">Virtual</div>
-                            <h3>Rising Strong Workshop</h3>
-                            <p class="event-tagline">Turn setbacks into comebacks</p>
-                            <p class="event-description">Learn the process of rising strong after failures and disappointments. Transform shame and fear into growth, resilience, and wisdom.</p>
-                            <div class="event-details">
-                                <p class="event-date">Next Event: March 1-2, 2025</p>
-                                <p class="event-location">Online</p>
-                            </div>
-                            <a href="#" class="event-btn">Register Today</a>
-                        </div>
-
-                        <!-- Event Card 5 -->
-                        <div class="event-card" style="background: linear-gradient(135deg, #a97c7c 0%, #986b6b 100%);">
-                            <div class="event-badge">In-Person</div>
-                            <h3>Leadership Mastery</h3>
-                            <p class="event-tagline">Lead with vulnerability and strength</p>
-                            <p class="event-description">An exclusive 5-day intensive for executives and leaders ready to transform their organizations through daring, empathetic leadership.</p>
-                            <div class="event-details">
-                                <p class="event-date">Next Event: May 20-24, 2025</p>
-                                <p class="event-location">Santa Fe, NM</p>
-                            </div>
-                            <a href="#" class="event-btn">Schedule a Call</a>
-                        </div>
-
-                        <!-- Event Card 6 -->
-                        <div class="event-card" style="background: linear-gradient(135deg, #7c8a9e 0%, #6b798d 100%);">
-                            <div class="event-badge">In-Person & Virtual</div>
-                            <h3>Boundaries & Balance</h3>
-                            <p class="event-tagline">Reclaim your energy and time</p>
-                            <p class="event-description">Master the art of setting healthy boundaries in work and life. Create sustainable rhythms and protect your well-being without guilt.</p>
-                            <div class="event-details">
-                                <p class="event-date">Next Event: February 22-23, 2025</p>
-                                <p class="event-location">Denver, CO</p>
-                            </div>
-                            <a href="#" class="event-btn">Join Us</a>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-nav next" id="eventsNext">›</button>
-            </div>
-        </div>
-    </section>
-
     <!-- Programs Section -->
     <section class="programs" id="programs">
         <div class="section-header">
@@ -1686,16 +1981,16 @@
                 </blockquote>
             </div>
             <div class="testimonial-avatars">
-                <div class="avatar active" data-client="0" style="background: linear-gradient(135deg, #8B5CF6, #A78BFA);">
+                <div class="avatar active" data-client="0" style="background: linear-gradient(135deg, #a97c7c, #986b6b);">
                     <span class="avatar-initials">JM</span>
                 </div>
-                <div class="avatar" data-client="1" style="background: linear-gradient(135deg, #3B82F6, #60A5FA);">
+                <div class="avatar" data-client="1" style="background: linear-gradient(135deg, #7b9e87, #6a8d76);">
                     <span class="avatar-initials">DC</span>
                 </div>
-                <div class="avatar" data-client="2" style="background: linear-gradient(135deg, #EC4899, #F472B6);">
+                <div class="avatar" data-client="2" style="background: linear-gradient(135deg, #9b7e6b, #8a6d5a);">
                     <span class="avatar-initials">AW</span>
                 </div>
-                <div class="avatar" data-client="3" style="background: linear-gradient(135deg, #F59E0B, #FBBF24);">
+                <div class="avatar" data-client="3" style="background: linear-gradient(135deg, #6b8b9e, #5a7a8d);">
                     <span class="avatar-initials">MT</span>
                 </div>
             </div>
@@ -1712,16 +2007,16 @@
                 </blockquote>
             </div>
             <div class="testimonial-avatars">
-                <div class="avatar" data-client="0" style="background: linear-gradient(135deg, #8B5CF6, #A78BFA);">
+                <div class="avatar" data-client="0" style="background: linear-gradient(135deg, #a97c7c, #986b6b);">
                     <span class="avatar-initials">JM</span>
                 </div>
-                <div class="avatar active" data-client="1" style="background: linear-gradient(135deg, #3B82F6, #60A5FA);">
+                <div class="avatar active" data-client="1" style="background: linear-gradient(135deg, #7b9e87, #6a8d76);">
                     <span class="avatar-initials">DC</span>
                 </div>
-                <div class="avatar" data-client="2" style="background: linear-gradient(135deg, #EC4899, #F472B6);">
+                <div class="avatar" data-client="2" style="background: linear-gradient(135deg, #9b7e6b, #8a6d5a);">
                     <span class="avatar-initials">AW</span>
                 </div>
-                <div class="avatar" data-client="3" style="background: linear-gradient(135deg, #F59E0B, #FBBF24);">
+                <div class="avatar" data-client="3" style="background: linear-gradient(135deg, #6b8b9e, #5a7a8d);">
                     <span class="avatar-initials">MT</span>
                 </div>
             </div>
@@ -1738,16 +2033,16 @@
                 </blockquote>
             </div>
             <div class="testimonial-avatars">
-                <div class="avatar" data-client="0" style="background: linear-gradient(135deg, #8B5CF6, #A78BFA);">
+                <div class="avatar" data-client="0" style="background: linear-gradient(135deg, #a97c7c, #986b6b);">
                     <span class="avatar-initials">JM</span>
                 </div>
-                <div class="avatar" data-client="1" style="background: linear-gradient(135deg, #3B82F6, #60A5FA);">
+                <div class="avatar" data-client="1" style="background: linear-gradient(135deg, #7b9e87, #6a8d76);">
                     <span class="avatar-initials">DC</span>
                 </div>
-                <div class="avatar active" data-client="2" style="background: linear-gradient(135deg, #EC4899, #F472B6);">
+                <div class="avatar active" data-client="2" style="background: linear-gradient(135deg, #9b7e6b, #8a6d5a);">
                     <span class="avatar-initials">AW</span>
                 </div>
-                <div class="avatar" data-client="3" style="background: linear-gradient(135deg, #F59E0B, #FBBF24);">
+                <div class="avatar" data-client="3" style="background: linear-gradient(135deg, #6b8b9e, #5a7a8d);">
                     <span class="avatar-initials">MT</span>
                 </div>
             </div>
@@ -1764,16 +2059,16 @@
                 </blockquote>
             </div>
             <div class="testimonial-avatars">
-                <div class="avatar" data-client="0" style="background: linear-gradient(135deg, #8B5CF6, #A78BFA);">
+                <div class="avatar" data-client="0" style="background: linear-gradient(135deg, #a97c7c, #986b6b);">
                     <span class="avatar-initials">JM</span>
                 </div>
-                <div class="avatar" data-client="1" style="background: linear-gradient(135deg, #3B82F6, #60A5FA);">
+                <div class="avatar" data-client="1" style="background: linear-gradient(135deg, #7b9e87, #6a8d76);">
                     <span class="avatar-initials">DC</span>
                 </div>
-                <div class="avatar" data-client="2" style="background: linear-gradient(135deg, #EC4899, #F472B6);">
+                <div class="avatar" data-client="2" style="background: linear-gradient(135deg, #9b7e6b, #8a6d5a);">
                     <span class="avatar-initials">AW</span>
                 </div>
-                <div class="avatar active" data-client="3" style="background: linear-gradient(135deg, #F59E0B, #FBBF24);">
+                <div class="avatar active" data-client="3" style="background: linear-gradient(135deg, #6b8b9e, #5a7a8d);">
                     <span class="avatar-initials">MT</span>
                 </div>
             </div>
@@ -2079,6 +2374,69 @@
 
         // Initialize testimonials carousel on load
         window.addEventListener('load', initTestimonialsCarousel);
+
+        // Impact Carousel
+        let currentImpactSlide = 0;
+        const impactSlides = document.querySelectorAll('.impact-slide');
+        const impactDots = document.querySelectorAll('.carousel-dot');
+        const totalImpactSlides = impactSlides.length;
+        let impactAutoRotate;
+
+        function showImpactSlide(index) {
+            // Hide all slides
+            impactSlides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Remove active from all dots
+            impactDots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+
+            // Show selected slide
+            impactSlides[index].classList.add('active');
+            impactDots[index].classList.add('active');
+
+            currentImpactSlide = index;
+        }
+
+        function nextImpactSlide() {
+            const next = (currentImpactSlide + 1) % totalImpactSlides;
+            showImpactSlide(next);
+        }
+
+        function startImpactAutoRotate() {
+            impactAutoRotate = setInterval(nextImpactSlide, 5000); // Change every 5 seconds
+        }
+
+        function stopImpactAutoRotate() {
+            clearInterval(impactAutoRotate);
+        }
+
+        function initImpactCarousel() {
+            // Add click listeners to dots
+            impactDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const slideIndex = parseInt(this.getAttribute('data-slide'));
+                    stopImpactAutoRotate();
+                    showImpactSlide(slideIndex);
+                    startImpactAutoRotate();
+                });
+            });
+
+            // Start auto-rotation
+            startImpactAutoRotate();
+
+            // Pause on hover
+            const impactCarousel = document.querySelector('.impact-carousel-container');
+            if (impactCarousel) {
+                impactCarousel.addEventListener('mouseenter', stopImpactAutoRotate);
+                impactCarousel.addEventListener('mouseleave', startImpactAutoRotate);
+            }
+        }
+
+        // Initialize impact carousel on load
+        window.addEventListener('load', initImpactCarousel);
     </script>
 </body>
 </html>
