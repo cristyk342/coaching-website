@@ -111,6 +111,23 @@
             margin: 0;
         }
 
+        .hero-subtitle {
+            position: absolute;
+            top: 43%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 400;
+            text-align: center;
+            z-index: 3;
+            font-family: 'Georgia', serif;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            margin: 0;
+            opacity: 0.95;
+        }
+
         .hero-social-icons {
             position: absolute;
             top: 65%;
@@ -238,7 +255,7 @@
 
         /* About Section */
         .about {
-            padding: 100px 40px;
+            padding: 100px 40px 0;
             background: #ffffff;
             border-top: 1px solid #e8dfd4;
         }
@@ -509,11 +526,10 @@
         /* Journey/Carousel Section */
         .journey-section {
             padding: 100px 40px;
-            background-image: url('IMG_0090.jpeg');
+            background-image: url('IMG_0094.jpeg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            border-top: 1px solid #e8dfd4;
             position: relative;
         }
 
@@ -524,7 +540,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(104, 168, 123, 0.85);
+            background: rgba(211, 211, 211, 0.9);
             z-index: 0;
         }
 
@@ -544,13 +560,13 @@
             font-weight: 400;
             letter-spacing: 0.5px;
             margin-bottom: 20px;
-            color: #ffffff;
+            color: #000000;
             font-family: 'Georgia', serif;
         }
 
         .section-header p {
             font-size: 1.15rem;
-            color: #ffffff;
+            color: #000000;
             line-height: 1.8;
             font-family: 'Georgia', serif;
         }
@@ -1030,9 +1046,8 @@
 
         /* Programs Section */
         .programs {
-            padding: 100px 40px;
+            padding: 125px 40px 100px;
             background: #ffffff;
-            border-top: 1px solid #e8dfd4;
         }
 
         .programs-grid {
@@ -1123,6 +1138,8 @@
             overflow: hidden;
             min-height: 600px;
             margin-top: 100px;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
         .testimonial-slide {
@@ -1239,11 +1256,15 @@
 
         /* Avatar color alternating pattern */
         .avatar[data-client="0"] {
-            background: #68A87B;
+            background: #d3d3d3;
         }
 
         .avatar[data-client="0"] .avatar-initials {
-            color: #ffffff;
+            color: #1C3423;
+        }
+
+        .avatar[data-client="0"].active {
+            border-color: #ffffff;
         }
 
         .avatar[data-client="1"] {
@@ -1251,15 +1272,23 @@
         }
 
         .avatar[data-client="1"] .avatar-initials {
-            color: #68A87B;
+            color: #1C3423;
+        }
+
+        .avatar[data-client="1"].active {
+            border-color: #68A87B;
         }
 
         .avatar[data-client="2"] {
-            background: #68A87B;
+            background: #d3d3d3;
         }
 
         .avatar[data-client="2"] .avatar-initials {
-            color: #ffffff;
+            color: #1C3423;
+        }
+
+        .avatar[data-client="2"].active {
+            border-color: #ffffff;
         }
 
         .avatar[data-client="3"] {
@@ -1267,7 +1296,11 @@
         }
 
         .avatar[data-client="3"] .avatar-initials {
-            color: #68A87B;
+            color: #1C3423;
+        }
+
+        .avatar[data-client="3"].active {
+            border-color: #68A87B;
         }
 
         .client-info {
@@ -1495,6 +1528,13 @@
                 letter-spacing: 1px;
             }
 
+            .hero-subtitle {
+                font-size: 1.1rem;
+                top: 38%;
+                padding: 0 20px;
+                letter-spacing: 0.5px;
+            }
+
             .about-main-heading {
                 font-size: 2rem;
                 margin-bottom: 40px;
@@ -1706,7 +1746,8 @@
     <section class="hero" id="home">
         <img src="https://raw.githubusercontent.com/cristyk342/coaching-website/master/IMG_0082.jpeg" alt="Hero Background" class="hero-video-bg">
         <div class="hero-overlay"></div>
-        <h1 class="hero-title">Welcome, Begin Following Liam's Direction</h1>
+        <h1 class="hero-title">Welcome to Liam's Direction</h1>
+        <p class="hero-subtitle">Discover clarity, confidence, and authentic purpose in your journey</p>
         <div class="hero-social-icons">
             <a href="https://www.youtube.com/@LiamsDirectionLLC" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-youtube"></i>
@@ -1938,6 +1979,58 @@
         </div>
     </section>
 
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="section-header">
+            <h2>Coaching Programs</h2>
+            <p>Each program is designed to meet you where you are and guide you toward wholehearted living</p>
+        </div>
+        <div class="programs-grid">
+            <div class="program-card">
+                <h3>Career Courage</h3>
+                <div class="program-content">
+                    <p>Find work that aligns with your values and allows you to show up authentically. Navigate transitions with clarity and confidence.</p>
+                    <ul>
+                        <li>Values and strengths exploration</li>
+                        <li>Career path discernment</li>
+                        <li>Authentic personal branding</li>
+                        <li>Interview confidence building</li>
+                        <li>Meaningful networking strategies</li>
+                    </ul>
+                    <a href="#" class="program-link">Learn More →</a>
+                </div>
+            </div>
+            <div class="program-card">
+                <h3>Wholehearted Living</h3>
+                <div class="program-content">
+                    <p>Cultivate balance, set boundaries, and restore your energy for what matters most in work and life.</p>
+                    <ul>
+                        <li>Boundary setting practices</li>
+                        <li>Energy and time alignment</li>
+                        <li>Compassionate self-care</li>
+                        <li>Relationship communication</li>
+                        <li>Sustainable daily rhythms</li>
+                    </ul>
+                    <a href="#" class="program-link">Learn More →</a>
+                </div>
+            </div>
+            <div class="program-card">
+                <h3>Daring Leadership</h3>
+                <div class="program-content">
+                    <p>Lead with courage, vulnerability, and empathy. Build trust, inspire teams, and create meaningful impact.</p>
+                    <ul>
+                        <li>Vulnerability in leadership</li>
+                        <li>Building trust and connection</li>
+                        <li>Courageous conversations</li>
+                        <li>Values-driven decision making</li>
+                        <li>Leading with empathy</li>
+                    </ul>
+                    <a href="#" class="program-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Journey/Skill Tree Section -->
     <section class="journey-section" id="journey">
         <div class="section-header">
@@ -2124,58 +2217,6 @@
                 </div>
 
                 <div class="indicators" id="indicators"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Programs Section -->
-    <section class="programs" id="programs">
-        <div class="section-header">
-            <h2>Coaching Programs</h2>
-            <p>Each program is designed to meet you where you are and guide you toward wholehearted living</p>
-        </div>
-        <div class="programs-grid">
-            <div class="program-card">
-                <h3>Career Courage</h3>
-                <div class="program-content">
-                    <p>Find work that aligns with your values and allows you to show up authentically. Navigate transitions with clarity and confidence.</p>
-                    <ul>
-                        <li>Values and strengths exploration</li>
-                        <li>Career path discernment</li>
-                        <li>Authentic personal branding</li>
-                        <li>Interview confidence building</li>
-                        <li>Meaningful networking strategies</li>
-                    </ul>
-                    <a href="#" class="program-link">Learn More →</a>
-                </div>
-            </div>
-            <div class="program-card">
-                <h3>Wholehearted Living</h3>
-                <div class="program-content">
-                    <p>Cultivate balance, set boundaries, and restore your energy for what matters most in work and life.</p>
-                    <ul>
-                        <li>Boundary setting practices</li>
-                        <li>Energy and time alignment</li>
-                        <li>Compassionate self-care</li>
-                        <li>Relationship communication</li>
-                        <li>Sustainable daily rhythms</li>
-                    </ul>
-                    <a href="#" class="program-link">Learn More →</a>
-                </div>
-            </div>
-            <div class="program-card">
-                <h3>Daring Leadership</h3>
-                <div class="program-content">
-                    <p>Lead with courage, vulnerability, and empathy. Build trust, inspire teams, and create meaningful impact.</p>
-                    <ul>
-                        <li>Vulnerability in leadership</li>
-                        <li>Building trust and connection</li>
-                        <li>Courageous conversations</li>
-                        <li>Values-driven decision making</li>
-                        <li>Leading with empathy</li>
-                    </ul>
-                    <a href="#" class="program-link">Learn More →</a>
-                </div>
             </div>
         </div>
     </section>
