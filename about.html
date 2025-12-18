@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Liam | Liam's Direction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #F5F5F5;
+            color: #333333;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation - Brené Brown style */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #ffffff;
+            border-bottom: 1px solid #e8dfd4;
+            z-index: 1000;
+            padding: 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: block;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333333;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            font-family: 'Georgia', serif;
+        }
+
+        .nav-links a:hover {
+            color: #68A87B;
+        }
+
+        /* About Hero Section */
+        .about-hero {
+            margin-top: 100px;
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #1C3423 0%, #68A87B 100%);
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            font-family: 'Georgia', serif;
+        }
+
+        .about-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 100px 40px;
+            background: #ffffff;
+        }
+
+        .story-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .story-section h2 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: #1C3423;
+            margin-bottom: 40px;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .story-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: #68A87B;
+        }
+
+        .story-section p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: #333333;
+            margin-bottom: 30px;
+            font-family: 'Georgia', serif;
+        }
+
+        .story-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-text {
+            background: #F5F5F5;
+            padding: 40px;
+            border-left: 4px solid #68A87B;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-text ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .highlight-text ul li {
+            padding: 10px 0 10px 28px;
+            position: relative;
+            font-size: 1.15rem;
+            color: #333333;
+            line-height: 1.8;
+        }
+
+        .highlight-text ul li:before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            color: #68A87B;
+            font-size: 0.7rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Mission Section */
+        .mission-section {
+            padding: 80px 40px;
+            background: linear-gradient(180deg, #F5F5F5 0%, #ffffff 100%);
+        }
+
+        .mission-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission-section h2 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #1C3423;
+            margin-bottom: 25px;
+            font-family: 'Georgia', serif;
+        }
+
+        .mission-section p {
+            font-size: 1.25rem;
+            line-height: 1.9;
+            color: #333333;
+            font-family: 'Georgia', serif;
+            margin-bottom: 20px;
+        }
+
+        .mission-highlight {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #68A87B;
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 40px;
+            background: #1C3423;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .btn-primary {
+            background: #68A87B;
+            color: #ffffff;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+            border: 2px solid #68A87B;
+        }
+
+        .btn-primary:hover {
+            background: #ffffff;
+            color: #1C3423;
+            border-color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 40px 40px;
+            background: #ffffff;
+            color: #333333;
+            border-top: 1px solid #e8dfd4;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-about h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-about p {
+            color: #333333;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-family: 'Georgia', serif;
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #333333;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #333333;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-family: 'Georgia', serif;
+        }
+
+        .footer-links a:hover {
+            color: #68A87B;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid #e8dfd4;
+            text-align: center;
+            color: #333333;
+            font-family: 'Georgia', serif;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .about-hero {
+                margin-top: 70px;
+                padding: 60px 20px;
+            }
+
+            .about-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .about-hero p {
+                font-size: 1.1rem;
+            }
+
+            .story-section {
+                padding: 60px 20px;
+            }
+
+            .story-section h2 {
+                font-size: 2rem;
+            }
+
+            .story-section p {
+                font-size: 1.05rem;
+            }
+
+            .highlight-text {
+                padding: 25px;
+            }
+
+            .highlight-text ul li {
+                font-size: 1.05rem;
+            }
+
+            .mission-section {
+                padding: 60px 20px;
+            }
+
+            .mission-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .mission-section p {
+                font-size: 1.1rem;
+            }
+
+            .mission-highlight {
+                font-size: 1.2rem;
+            }
+
+            .cta-section {
+                padding: 60px 20px;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="IMG_0081.webp" alt="Liam's Direction" class="logo-image">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#journey">Your Journey</a></li>
+                <li><a href="index.html#events">Events</a></li>
+                <li><a href="index.html#programs">Programs</a></li>
+                <li><a href="index.html#stories">Stories</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <h1>About Liam</h1>
+        <p>Building clarity, confidence, and direction — one conversation at a time.</p>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="story-container">
+            <h2>Why I Started Coaching</h2>
+
+            <p>I didn't step into coaching because everything in my life was perfect — I stepped into it because I learned, firsthand, what it feels like to be stuck, overlooked, and unsure of what comes next. For years, I worked hard, built a strong career, and showed up for everyone around me… but I also realized how easy it is to pour into others while letting your own direction fade into the background.</p>
+
+            <p>At one point, I had to take a hard look at my life — my health, my career, my finances, and my peace — and be honest about what wasn't serving me anymore. That moment changed everything. I committed to rebuilding from the inside out, developing stronger habits, taking ownership of my personal growth, and creating a life that felt aligned with who I was becoming, not just who I had been.</p>
+
+            <div class="highlight-text">
+                <p style="margin-bottom: 15px; font-weight: 500;">Through that journey, I kept meeting people who were struggling with the same challenges:</p>
+                <ul>
+                    <li>Feeling lost.</li>
+                    <li>Feeling unsupported.</li>
+                    <li>Feeling like they were doing everything "right," but still not moving forward.</li>
+                </ul>
+            </div>
+
+            <p>I realized that the things I had learned — not just professionally, but personally — were exactly what others needed. Coaching wasn't just a career pivot for me; it was a calling. I wanted to build something that helped real people make real progress, without judgment, without "guru" energy, and without pretending life doesn't get messy sometimes.</p>
+
+            <p><strong>Liam's Direction was born from that mission.</strong></p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="mission-container">
+            <h2>My Goal is Simple</h2>
+            <p>Help people gain clarity, confidence, and control over their lives — personally, professionally, and financially.</p>
+            <p class="mission-highlight">Because when you understand your direction, everything else becomes possible.</p>
+            <p>And I'm here to walk that journey with you, step by step.</p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Find Your Direction?</h2>
+        <p>Let's start with a conversation. Schedule your complimentary discovery call today.</p>
+        <a href="index.html#contact" class="btn-primary">Get Started</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <img src="IMG_0081.webp" alt="Liam's Direction" class="logo-image" style="height: 60px; width: auto; margin-bottom: 20px;">
+                <p>Helping individuals and leaders cultivate courage, embrace vulnerability, and live wholeheartedly through research-grounded coaching.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#journey">How It Works</a></li>
+                    <li><a href="index.html#programs">Programs</a></li>
+                    <li><a href="index.html#stories">Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Writing</a></li>
+                    <li><a href="#">Podcast</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">Free Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://www.instagram.com/liamsdirection404/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="https://www.linkedin.com/in/liamdhenry/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="#">Email</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Liam's Direction. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
