@@ -208,6 +208,11 @@
             margin-top: 40px;
         }
 
+        /* Hero Text Below - Hidden on desktop, shown on mobile */
+        .hero-text-below {
+            display: none;
+        }
+
         /* Hero Buttons Below - Hidden on desktop, shown on mobile */
         .hero-buttons-below {
             display: none;
@@ -1554,9 +1559,37 @@
                 margin-top: 70px;
             }
 
-            /* Hide overlay buttons on mobile */
+            /* Hide overlay text and buttons on mobile */
+            .hero-title,
+            .hero-subtitle,
             .hero-buttons-overlay {
                 display: none;
+            }
+
+            /* Show text below hero image on mobile */
+            .hero-text-below {
+                display: block;
+                text-align: center;
+                padding: 30px 20px 20px;
+                background: #F5F5F5;
+            }
+
+            .hero-text-below h1 {
+                font-size: 2rem;
+                font-weight: 700;
+                color: #333333;
+                margin-bottom: 15px;
+                font-family: 'Georgia', serif;
+                letter-spacing: 1px;
+                line-height: 1.2;
+            }
+
+            .hero-text-below p {
+                font-size: 1.1rem;
+                color: #333333;
+                margin: 0;
+                font-family: 'Georgia', serif;
+                line-height: 1.6;
             }
 
             /* Show buttons below hero image on mobile */
@@ -1565,8 +1598,8 @@
                 flex-direction: row;
                 gap: 15px;
                 justify-content: center;
-                padding: 25px 20px;
-                background: #f8f3ea;
+                padding: 20px 20px 25px;
+                background: #F5F5F5;
             }
 
             .hero-buttons-below a {
@@ -1575,7 +1608,8 @@
             }
 
             .hero-social-icons {
-                top: 65%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);
                 gap: 15px;
             }
 
@@ -1583,22 +1617,6 @@
                 width: 40px;
                 height: 40px;
                 font-size: 1rem;
-            }
-
-            .hero-title {
-                font-size: 1.8rem;
-                top: 20%;
-                padding: 0 20px;
-                letter-spacing: 1px;
-                line-height: 1.2;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-                top: 40%;
-                padding: 0 20px;
-                letter-spacing: 0.5px;
-                line-height: 1.4;
             }
 
             .about-main-heading {
@@ -1831,6 +1849,12 @@
             <a href="#journey" class="btn-secondary">Learn More</a>
         </div>
     </section>
+
+    <!-- Hero Text Below Image (Mobile Only) -->
+    <div class="hero-text-below">
+        <h1>Welcome to Liam's Direction</h1>
+        <p>Discover clarity, confidence, and authentic purpose in your journey</p>
+    </div>
 
     <!-- Hero Buttons Below Image -->
     <div class="hero-buttons-below">
