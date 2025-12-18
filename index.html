@@ -531,6 +531,7 @@
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
+            display: none;
         }
 
         .journey-section::before {
@@ -1047,39 +1048,90 @@
         /* Programs Section */
         .programs {
             padding: 125px 40px 100px;
-            background: #ffffff;
+            background: linear-gradient(180deg, #ffffff 0%, #F5F5F5 100%);
+        }
+
+        .programs .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333333;
+            letter-spacing: 1.5px;
+            font-family: 'Georgia', serif;
         }
 
         .programs-grid {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             margin-top: 60px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
         }
 
         .program-card {
-            background: transparent;
-            padding: 50px 0;
-            border-radius: 0;
+            background: #ffffff;
+            padding: 45px 35px;
+            border-radius: 12px;
             border: none;
-            border-top: 1px solid #e8dfd4;
-            transition: all 0.3s ease;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
-            align-items: start;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .program-card:last-child {
-            border-bottom: 1px solid #e8dfd4;
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #68A87B 0%, #1C3423 100%);
+        }
+
+        .program-card:hover {
+            box-shadow: 0 8px 30px rgba(104, 168, 123, 0.15);
+            transform: translateY(-5px);
         }
 
         .program-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0;
-            color: #333333;
-            font-weight: 400;
+            font-size: 1.6rem;
+            margin-bottom: 35px;
+            color: #1C3423;
+            font-weight: 500;
             font-family: 'Georgia', serif;
             letter-spacing: 0.5px;
+            text-align: center;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e8dfd4;
+            position: relative;
+        }
+
+        .program-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #68A87B;
+        }
+
+        .program-content h4 {
+            font-size: 1.05rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #68A87B;
+            font-weight: 600;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.3px;
+        }
+
+        .program-content h4:first-child {
+            margin-top: 0;
         }
 
         .program-content p {
@@ -1093,23 +1145,34 @@
         .program-content ul {
             list-style: none;
             color: #333333;
-            margin-bottom: 25px;
+            margin-bottom: 28px;
+            padding-left: 0;
         }
 
         .program-content ul li {
-            padding: 8px 0;
-            padding-left: 25px;
+            padding: 10px 0 10px 28px;
             position: relative;
-            line-height: 1.7;
+            line-height: 1.6;
             font-family: 'Georgia', serif;
+            font-size: 0.95rem;
+            color: #555555;
+            transition: all 0.2s ease;
+        }
+
+        .program-content ul li:hover {
+            color: #333333;
+            padding-left: 32px;
         }
 
         .program-content ul li:before {
-            content: "—";
+            content: "●";
             position: absolute;
             left: 0;
             color: #68A87B;
             font-weight: 400;
+            font-size: 0.6rem;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         .program-link {
@@ -1140,6 +1203,7 @@
             margin-top: 100px;
             margin-bottom: 0;
             padding-bottom: 0;
+            display: none;
         }
 
         .testimonial-slide {
@@ -1174,19 +1238,19 @@
         }
 
         .testimonial-slide[data-index="0"] {
-            background-image: url('https://raw.githubusercontent.com/cristyk342/coaching-website/master/IMG_0083.jpeg');
+            background-image: url('IMG_0083.jpeg');
         }
 
         .testimonial-slide[data-index="1"] {
-            background-image: url('https://raw.githubusercontent.com/cristyk342/coaching-website/master/IMG_0084.jpeg');
+            background-image: url('IMG_0084.jpeg');
         }
 
         .testimonial-slide[data-index="2"] {
-            background-image: url('https://raw.githubusercontent.com/cristyk342/coaching-website/master/IMG_0085.jpeg');
+            background-image: url('IMG_0085.jpeg');
         }
 
         .testimonial-slide[data-index="3"] {
-            background-image: url('https://raw.githubusercontent.com/cristyk342/coaching-website/master/IMG_0086.jpeg');
+            background-image: url('IMG_0086.jpeg');
         }
 
         @keyframes fadeInSlide {
@@ -1454,9 +1518,9 @@
                 gap: 40px;
             }
 
-            .program-card {
+            .programs-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 30px;
             }
 
             .footer-container {
@@ -1728,7 +1792,7 @@
     <nav>
         <div class="nav-container">
             <a href="#home" class="logo">
-                <img src="https://raw.githubusercontent.com/cristyk342/coaching-website/master/IMG_0081.webp" alt="Liam's Direction" class="logo-image">
+                <img src="IMG_0081.webp" alt="Liam's Direction" class="logo-image">
             </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -1744,7 +1808,7 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <img src="https://raw.githubusercontent.com/cristyk342/coaching-website/master/IMG_0082.jpeg" alt="Hero Background" class="hero-video-bg">
+        <img src="IMG_0082.jpeg" alt="Hero Background" class="hero-video-bg">
         <div class="hero-overlay"></div>
         <h1 class="hero-title">Welcome to Liam's Direction</h1>
         <p class="hero-subtitle">Discover clarity, confidence, and authentic purpose in your journey</p>
@@ -1783,7 +1847,7 @@
                 <div class="events-track-container">
                     <div class="events-track" id="eventsTrack">
                         <!-- Event Card 1 -->
-                        <div class="event-card event-card-with-bg" style="background-image: url('https://raw.githubusercontent.com/cristyk342/coaching-website/master/IMG_0087.jpeg'); background-size: cover; background-position: center; position: relative;">
+                        <div class="event-card event-card-with-bg" style="background-image: url('IMG_0087.jpeg'); background-size: cover; background-position: center; position: relative;">
                             <div class="event-card-overlay"></div>
                             <div class="event-card-content">
                                 <div class="event-badge">In-Person & Virtual</div>
@@ -1791,15 +1855,15 @@
                                 <p class="event-tagline">Dare to lead authentically</p>
                                 <p class="event-description">A transformative 3-day immersion into vulnerability, courage, and authentic leadership. Learn to lead with heart and build trust-based teams.</p>
                                 <div class="event-details">
-                                    <p class="event-date">Next Event: March 15-17, 2025</p>
-                                    <p class="event-location">Austin, TX</p>
+                                    <p class="event-date">Next Event: Coming Soon</p>
+                                    <p class="event-location">To Be Determined</p>
                                 </div>
                                 <a href="#" class="event-btn">Schedule a Call</a>
                             </div>
                         </div>
 
                         <!-- Event Card 2 -->
-                        <div class="event-card event-card-with-bg" style="background-image: url('https://raw.githubusercontent.com/cristyk342/coaching-website/master/IMG_0088.jpeg'); background-size: cover; background-position: center; position: relative;">
+                        <div class="event-card event-card-with-bg" style="background-image: url('IMG_0088.jpeg'); background-size: cover; background-position: center; position: relative;">
                             <div class="event-card-overlay"></div>
                             <div class="event-card-content">
                                 <div class="event-badge">Virtual</div>
@@ -1807,15 +1871,15 @@
                                 <p class="event-tagline">Embrace your authentic self</p>
                                 <p class="event-description">Discover the practices that cultivate resilience, compassion, and wholehearted living. Set boundaries, restore balance, and reconnect with what matters.</p>
                                 <div class="event-details">
-                                    <p class="event-date">Next Event: February 10-11, 2025</p>
-                                    <p class="event-location">Online</p>
+                                    <p class="event-date">Next Event: Coming Soon</p>
+                                    <p class="event-location">To Be Determined</p>
                                 </div>
                                 <a href="#" class="event-btn">Sign Up Now</a>
                             </div>
                         </div>
 
                         <!-- Event Card 3 -->
-                        <div class="event-card event-card-with-bg" style="background-image: url('https://raw.githubusercontent.com/cristyk342/coaching-website/master/IMG_0089.jpeg'); background-size: cover; background-position: center; position: relative;">
+                        <div class="event-card event-card-with-bg" style="background-image: url('IMG_0089.jpeg'); background-size: cover; background-position: center; position: relative;">
                             <div class="event-card-overlay"></div>
                             <div class="event-card-content">
                                 <div class="event-badge">In-Person</div>
@@ -1823,8 +1887,8 @@
                                 <p class="event-tagline">Align your life with purpose</p>
                                 <p class="event-description">A rejuvenating weekend retreat to clarify your core values, envision your future, and create an actionable roadmap for meaningful change.</p>
                                 <div class="event-details">
-                                    <p class="event-date">Next Event: April 5-7, 2025</p>
-                                    <p class="event-location">Sedona, AZ</p>
+                                    <p class="event-date">Next Event: Coming Soon</p>
+                                    <p class="event-location">To Be Determined</p>
                                 </div>
                                 <a href="#" class="event-btn">Apply Now</a>
                             </div>
@@ -1839,7 +1903,7 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="about-hero">
-            <h1 class="about-main-heading">Do you have a hunger to increase the quality of your life?</h1>
+            <h1 class="about-main-heading">Ready to Elevate the quality of your life - intentionally?</h1>
 
             <div class="about-content-grid">
                 <div class="about-image">
@@ -1866,7 +1930,7 @@
                         </div>
                     </div>
                     <p>Progress creates joy— I don't coach from theory—I coach from experience. For over 15 years, I've helped people who felt stuck or overlooked gain the clarity, confidence, and direction to rebuild a life that feels authentic.</p>
-                    <a href="#" class="btn-about">Meet Your Coach</a>
+                    <a href="about.html" class="btn-about">Learn More About Liam</a>
                 </div>
             </div>
         </div>
@@ -1982,50 +2046,102 @@
     <!-- Programs Section -->
     <section class="programs" id="programs">
         <div class="section-header">
-            <h2>Coaching Programs</h2>
-            <p>Each program is designed to meet you where you are and guide you toward wholehearted living</p>
+            <h2>COACHING SERVICES</h2>
         </div>
         <div class="programs-grid">
             <div class="program-card">
-                <h3>Career Courage</h3>
+                <h3>Coaching for Individuals</h3>
                 <div class="program-content">
-                    <p>Find work that aligns with your values and allows you to show up authentically. Navigate transitions with clarity and confidence.</p>
+                    <h4>Personal Growth & Mindset Coaching</h4>
                     <ul>
-                        <li>Values and strengths exploration</li>
-                        <li>Career path discernment</li>
-                        <li>Authentic personal branding</li>
-                        <li>Interview confidence building</li>
-                        <li>Meaningful networking strategies</li>
+                        <li>Overcoming fear, self-doubt, and imposter syndrome</li>
+                        <li>Building healthy habits and sustainable routines</li>
+                        <li>Strengthening emotional resilience and self-awareness</li>
                     </ul>
-                    <a href="#" class="program-link">Learn More →</a>
+
+                    <h4>Career Navigation & Development</h4>
+                    <ul>
+                        <li>Identifying strengths, values, and long-term goals</li>
+                        <li>Planning for career transitions or promotions</li>
+                        <li>Resume refinement, job search strategy, and interview preparation</li>
+                    </ul>
+
+                    <h4>Financial Wellness Coaching</h4>
+                    <ul>
+                        <li>Understanding spending habits and creating budgets</li>
+                        <li>Building short- and long-term financial goals</li>
+                        <li>Debt reduction, saving strategies, and wealth-building</li>
+                    </ul>
+
+                    <h4>Life Direction & Accountability</h4>
+                    <ul>
+                        <li>Weekly or bi-weekly accountability sessions</li>
+                        <li>Personalized action plans and progress tracking</li>
+                        <li>Support during major life transitions</li>
+                    </ul>
                 </div>
             </div>
             <div class="program-card">
-                <h3>Wholehearted Living</h3>
+                <h3>Coaching for Companies</h3>
                 <div class="program-content">
-                    <p>Cultivate balance, set boundaries, and restore your energy for what matters most in work and life.</p>
+                    <h4>Employee Development & Performance Coaching</h4>
                     <ul>
-                        <li>Boundary setting practices</li>
-                        <li>Energy and time alignment</li>
-                        <li>Compassionate self-care</li>
-                        <li>Relationship communication</li>
-                        <li>Sustainable daily rhythms</li>
+                        <li>Growth plans aligned to organizational goals</li>
+                        <li>Communication, collaboration, and emotional intelligence coaching</li>
+                        <li>Support for high-potential employees and rising leaders</li>
                     </ul>
-                    <a href="#" class="program-link">Learn More →</a>
+
+                    <h4>Team Alignment & Workplace Culture</h4>
+                    <ul>
+                        <li>Improving team dynamics and trust-building</li>
+                        <li>Conflict resolution and communication coaching</li>
+                        <li>Creating inclusive, psychologically safe environments</li>
+                    </ul>
+
+                    <h4>Process & Productivity Optimization</h4>
+                    <ul>
+                        <li>Identifying workflow and operational inefficiencies</li>
+                        <li>Coaching teams on execution, delivery, and discipline</li>
+                        <li>Accountability frameworks that reduce rework</li>
+                    </ul>
+
+                    <h4>Leadership Readiness Coaching</h4>
+                    <ul>
+                        <li>Preparing employees for leadership roles</li>
+                        <li>Building confidence and executive presence</li>
+                    </ul>
                 </div>
             </div>
             <div class="program-card">
-                <h3>Daring Leadership</h3>
+                <h3>Coaching for Executive Leaders</h3>
                 <div class="program-content">
-                    <p>Lead with courage, vulnerability, and empathy. Build trust, inspire teams, and create meaningful impact.</p>
+                    <h4>Strategic Leadership Coaching</h4>
                     <ul>
-                        <li>Vulnerability in leadership</li>
-                        <li>Building trust and connection</li>
-                        <li>Courageous conversations</li>
-                        <li>Values-driven decision making</li>
-                        <li>Leading with empathy</li>
+                        <li>Vision-setting and strategic alignment</li>
+                        <li>Leading through complexity and change</li>
+                        <li>Elevated decision-making and influence</li>
                     </ul>
-                    <a href="#" class="program-link">Learn More →</a>
+
+                    <h4>Executive Presence & Communication</h4>
+                    <ul>
+                        <li>Strong storytelling and message clarity</li>
+                        <li>Mastering presentations and stakeholder communication</li>
+                        <li>Developing a leadership style that inspires trust</li>
+                    </ul>
+
+                    <h4>Organizational Alignment & Performance</h4>
+                    <ul>
+                        <li>Bringing clarity across teams and functions</li>
+                        <li>Strengthening accountability and productivity systems</li>
+                        <li>Creating high-performance cultures</li>
+                    </ul>
+
+                    <h4>Well-Being & Sustainable Leadership</h4>
+                    <ul>
+                        <li>Managing stress and preventing burnout</li>
+                        <li>Creating routines that support mental and emotional well-being</li>
+                        <li>Balancing leadership demands with personal alignment</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -2278,7 +2394,7 @@
     <footer>
         <div class="footer-container">
             <div class="footer-about">
-                <h3>Liam's Direction</h3>
+                <img src="IMG_0081.webp" alt="Liam's Direction" class="logo-image" style="height: 60px; width: auto; margin-bottom: 20px;">
                 <p>Helping individuals and leaders cultivate courage, embrace vulnerability, and live wholeheartedly through research-grounded coaching.</p>
             </div>
             <div class="footer-links">
@@ -2592,7 +2708,7 @@
         }
 
         function startImpactAutoRotate() {
-            impactAutoRotate = setInterval(nextImpactSlide, 5000); // Change every 5 seconds
+            impactAutoRotate = setInterval(nextImpactSlide, 8000); // Change every 8 seconds
         }
 
         function stopImpactAutoRotate() {
